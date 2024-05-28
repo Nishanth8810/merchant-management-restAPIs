@@ -1,0 +1,2 @@
+--INSERT INTO category (name) VALUES ('Restaurant'), ('Bakery'), ('Grocery');
+--INSERT INTO admin (username, password) VALUES ('admin', '$2a$10$DowI8Y9aEgU9lR2LX7I1J.7i5ex0JHsF3nGvn/ghKoK7qlm5eV6a2'); -- password is 'admin' encoded with BCrypt
