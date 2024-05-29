@@ -5,7 +5,6 @@ import com.example.merchantmanagement.dto.MerchantRequest;
 import com.example.merchantmanagement.dto.MerchantResponse;
 import com.example.merchantmanagement.service.CategoryService;
 import com.example.merchantmanagement.service.MerchantService;
-
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

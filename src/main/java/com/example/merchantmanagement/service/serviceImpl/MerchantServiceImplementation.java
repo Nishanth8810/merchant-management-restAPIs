@@ -51,32 +51,32 @@ public class MerchantServiceImplementation implements MerchantService {
     public ResponseEntity<MerchantResponse> getMerchant(String shopName) {
         try {
             Merchant merchant = merchantRepository.findByShopName(shopName).get();
-            MerchantResponse merchantResponse= new MerchantResponse();
+            MerchantResponse merchantResponse = new MerchantResponse();
             merchantResponse.setOwnerName(merchant.getOwnerName());
             merchantResponse.setPhoneNumber(merchant.getPhoneNumber());
             merchantResponse.setRegistrationNumber(merchant.getRegistrationNumber());
             merchantResponse.setCategoryName(merchant.getCategory().getCategoryName());
             merchantResponse.setShopName(merchant.getShopName());
-            return new ResponseEntity<>(merchantResponse,HttpStatus.OK);
+            return new ResponseEntity<>(merchantResponse, HttpStatus.OK);
         } catch (Exception e) {
-            return new ResponseEntity<>(null,HttpStatus.INTERNAL_SERVER_ERROR);
+            return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 
     @Override
     public ResponseEntity<List<MerchantResponse>> getAllMerchants() {
         try {
-            List<Merchant> merchants=merchantRepository.findAll();
+            List<Merchant> merchants = merchantRepository.findAll();
             return toMerchantListDTO(merchants);
         } catch (Exception e) {
-        throw new RuntimeException();
+            throw new RuntimeException();
         }
     }
 
     private ResponseEntity<List<MerchantResponse>> toMerchantListDTO(List<Merchant> merchants) {
-        List<MerchantResponse> merchantList=new ArrayList<>();
-        for (Merchant merchant:merchants){
-            MerchantResponse merchantResponse= new MerchantResponse();
+        List<MerchantResponse> merchantList = new ArrayList<>();
+        for (Merchant merchant : merchants) {
+            MerchantResponse merchantResponse = new MerchantResponse();
             merchantResponse.setOwnerName(merchant.getOwnerName());
             merchantResponse.setPhoneNumber(merchant.getPhoneNumber());
             merchantResponse.setRegistrationNumber(merchant.getRegistrationNumber());
@@ -84,7 +84,7 @@ public class MerchantServiceImplementation implements MerchantService {
             merchantResponse.setShopName(merchant.getShopName());
             merchantList.add(merchantResponse);
         }
-        return new ResponseEntity<>(merchantList,HttpStatus.OK);
+        return new ResponseEntity<>(merchantList, HttpStatus.OK);
     }
 
     @Override
