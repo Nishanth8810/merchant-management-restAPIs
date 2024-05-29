@@ -17,13 +17,13 @@ public class CategoryServiceImplementation implements CategoryService {
 
     @Override
     public HttpStatus saveCategory(CategoryRequest categoryRequest) {
-        try{
-            Category category=new Category();
-            category.setCategoryName(category.getCategoryName());
+        try {
+            Category category = new Category();
+            category.setCategoryName(categoryRequest.getCategoryName());
             categoryRepository.save(category);
             return HttpStatus.CREATED;
-        }catch (Exception e){
-           return HttpStatus.INTERNAL_SERVER_ERROR;
+        } catch (Exception e) {
+            return HttpStatus.INTERNAL_SERVER_ERROR;
         }
 
     }

@@ -1,2 +1,6 @@
---INSERT INTO category (name) VALUES ('Restaurant'), ('Bakery'), ('Grocery');
---INSERT INTO admin (username, password) VALUES ('admin', '$2a$10$DowI8Y9aEgU9lR2LX7I1J.7i5ex0JHsF3nGvn/ghKoK7qlm5eV6a2'); -- password is 'admin' encoded with BCrypt
+--INSERT INTO category (category_name) VALUES ('Restaurant'), ('Bakery'), ('Grocery');
+--
+--INSERT INTO merchant (shop_name, phone_number, owner_name, registration_number, category_id)
+--VALUES ('Shop1', '1234567890', 'Owner1', 'REG123', 1),
+--       ('Shop2', '0987654321', 'Owner2', 'REG456', 2),
+--       ('Shop3', '1234509876', 'Owner3', 'REG789', 3);

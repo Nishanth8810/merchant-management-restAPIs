@@ -12,7 +12,7 @@ public interface MerchantService {
 
     ResponseEntity<MerchantResponse> getMerchant(String shopName);
 
-    List<ResponseEntity<MerchantResponse>> getAllMerchants();
+    ResponseEntity<List<MerchantResponse>> getAllMerchants();
 
     HttpStatus deleteMerchant(String merchantName);
 }

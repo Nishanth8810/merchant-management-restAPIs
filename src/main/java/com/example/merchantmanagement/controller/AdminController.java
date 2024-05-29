@@ -5,11 +5,12 @@ import com.example.merchantmanagement.dto.MerchantRequest;
 import com.example.merchantmanagement.dto.MerchantResponse;
 import com.example.merchantmanagement.service.CategoryService;
 import com.example.merchantmanagement.service.MerchantService;
-import io.swagger.v3.oas.annotations.parameters.RequestBody;
+
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -17,6 +18,7 @@ import java.util.List;
 @RestController
 @Slf4j
 @RequestMapping("/api/v1/admin")
+@PreAuthorize("hasRole('ADMIN')")
 public class AdminController {
     @Autowired
     MerchantService merchantService;
@@ -44,7 +46,7 @@ public class AdminController {
     }
 
     @GetMapping("/getAllMerchants")
-    public List<ResponseEntity<MerchantResponse>> getAllMerchants() {
+    public ResponseEntity<List<MerchantResponse>> getAllMerchants() {
         try {
             return merchantService.getAllMerchants();
         } catch (Exception e) {
@@ -65,7 +67,7 @@ public class AdminController {
     }
 
     @DeleteMapping("/deleteMerchant/{shopName}")
-    public HttpStatus deleteMerchant(@PathVariable String shopName ) {
+    public HttpStatus deleteMerchant(@PathVariable String shopName) {
         try {
             return merchantService.deleteMerchant(shopName);
         } catch (Exception e) {

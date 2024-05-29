@@ -1,6 +1,8 @@
 package com.example.merchantmanagement.entity;
 
 import jakarta.persistence.*;
+
+
 import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
